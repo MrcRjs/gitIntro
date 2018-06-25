@@ -153,6 +153,41 @@ $ git commit
 					**24b9da6552252987aa493b52f8696cd6d3b00373**
 					</script>
 				</section>
+				<section data-background-color="#dcdcdc">
+					<h2>Commits</h2>
+					<pre><code data-trim data-noescape>
+$ echo "&lt;ul&gt;&lt;li&gt;Café&lt;/li&gt;&lt;li&gt;Cerveza&lt;/li&gt;&lt;/ul&gt;" >> index.html
+$ echo "Mi lista de compras" > README.md
+$ git add .
+$ git commit -m "Se agregó cerveza y café a la lista de compras"
+					</code></pre>
+				</section>
+				<section data-background-color="#dcdcdc">
+					<h2>Analizando Commits</h2>
+					<pre><code data-trim data-noescape>
+$ git log
+$ git log --format=fuller
+$ git log --format=raw
+$ git cat-file -p [object]
+$ git log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)"
+				</code></pre>
+				</section>
+				<section>
+					<h2>Porcelana</h2>
+					<img class="simple" src="img/capturas/intro/porcelain.jpg">
+				</section>
+				<section>
+					<h2>Organización de archivos</h2>
+					<a href="https://github.com/MrcRjs/gitIntro/raw/gh-pages/img/capturas/intro/git-draw.png"><img class="simple" src="img/capturas/intro/git-draw.png"></a>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					### Recursos extra
+					- [Documentación Oficial](https://git-scm.com/docs)
+					- [Pro Git(Libro)](https://git-scm.com/book/en/v2)
+					- [Github Learning](https://try.github.io/)
+					</script>
+				</section>
 			</div>
 		</div>
 
