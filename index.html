@@ -30,22 +30,6 @@
 					<a href="https://twitter.com/MrcRjs"><h4>Marco A. Rojas</h4></a>
 					<a href="https://github.com/MrcRjs"><img class="simple" src="img/git.png"></a>
 				</section>
-				<section>
-					<h2>¿Quihúbole con el Git?</h2>
-					<img src="img/yordi.jpg">
-				</section>
-				<section>
-					<h3>Sistema de Control de Versiones Local</h3>
-					<img class="simple" src="img/local.png">
-				</section>
-				<section>
-					<h3>Sistema de Control de Versiones Centralizado</h3>
-					<img class="simple" src="img/centralized.png">
-				</section>
-				<section>
-					<h3>Sistema de Control de Versiones Distribuido</h3>
-					<img class="simple" src="img/distributed.png">
-				</section>
 				<section data-markdown>
 					<script type="text/template">
 						## Metas de Git
@@ -57,27 +41,117 @@
 					</script>
 				</section>
 				<section>
-					<h2>Others</h2>
-					<img class="simple" src="img/deltas.png">
-				</section>
-				<section>
 					<h2>Git</h2>
 					<img class="simple" src="img/snapshots.png">
+				</section>
+				<section>
+					<h3>Sistema de Control de Versiones Distribuido</h3>
+					<img class="simple" src="img/distributed.png">
+				</section>
+				<section>
+					<h2>go Go GO!</h2>
+					<img class="simple" src="img/bloody.gif">
+				</section>
+				<section data-background-color="#dcdcdc">
+				<h2>Configuración Inicial</h2>
+					<pre><code data-trim data-noescape>
+$ git
+$ git config --global user.name "Marco A. Rojas"
+$ git config --global user.email "devmarcorojas@gmail.com"
+$ git config --global core.editor nano
+$ git config --list
+					</code></pre>
+				</section>
+				<section data-background-color="#dcdcdc">
+					<h2>Nuevo Repositorio</h2>
+					<pre><code data-trim data-noescape>
+$ mkdir proyectoGit
+$ cd proyectoGit
+$ git init
+				</code></pre>
+				</section>
+				<section>
+				<section data-background-color="#dcdcdc">
+					<h2>Agregando un nuevo archivo</h2>
+					<pre><code data-trim data-noescape>
+$ echo "&lt;h1&gt;Hola Universo!&lt;/h1&gt;" >> index.html 
+$ git status
+$ git add index.html
+$ git status
+				</code></pre>
+				</section>
+				<section>
+					<h3>Agregando un nuevo archivo</h3>
+					<img class="simple" src="img/capturas/intro/intro1.png">
+				</section>
+				<section>
+					<h3>Agregando un nuevo archivo</h3>
+					<img class="simple" src="img/capturas/intro/intro2.png">
+				</section>
+				</section>
+				<section>
+				<section data-background-color="#dcdcdc">
+					<h2>Commits</h2>
+					<pre><code data-trim data-noescape>
+$ git commit --message "Primer commit"
+$ git status
+				</code></pre>
+				</section>
+				<section>
+					<h3>Commits</h3>
+					<img class="simple" src="img/capturas/intro/intro3.png">
+				</section>
+				</section>
+				<section>
+				<section data-background-color="#dcdcdc">
+					<h2>Modificando archivos</h2>
+					<pre><code data-trim data-noescape>
+$ echo "&lt;p&gt;Esto es muy fácil 🍞&lt;/p&gt;" >> index.html
+$ git status
+$ git add
+$ git commit
+								</code></pre>
+				</section>
+				<section>
+					<h3>Modificando Archivos</h3>
+					<img class="simple" src="img/capturas/intro/intro4.png">
+				</section>
+				<section>
+					<h3>Modificando Archivos</h3>
+					<img class="simple" src="img/capturas/intro/intro5.png">
+				</section>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					## Resumen
+					
+					- Iniciar un repositorio de Git es tan sencillo como ejecutar *git init*
+					- Podemos trabajar offline y subir nuestro trabajo a una ubicación remota cuando sea conveniente
+					- Localmente se almacena el historial completo del repositorio
+					- Git no hará nigun cambio hasta que se lo indiques explícitamente
+					</script>
 				</section>
 				<section>
 					<h2>Committed, Modified, y Staged</h2>
 					<img class="simple" src="img/areas.png">
 				</section>
 				<section>
-					<h2>go Go GO!</h2>
-					<img class="simple" src="img/bloody.gif">
-				</section>
-				<section>
 					<h2>Ciclo de vida de los archivos</h2>
 					<img class="simple" src="img/lifecycle.png">
 				</section>
-				<section>
-					<h1>Continuará...</h1>
+				<section data-background-color="#00395E">
+					<h2 style="color: whitesmoke;">Funcionamiento interno de Git</h2>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					### Integridad de los archivos
+
+					- Todo en Git es *check-summed*, con esto se vuelve imposible cambiar algo sin que Git lo note
+					- El mecanismo de hash utilizado por Git es SHA-1
+					- Git almacena todo su información haciendo uso de estos hashes, por lo que es común verlos por todas partes
+
+					**24b9da6552252987aa493b52f8696cd6d3b00373**
+					</script>
 				</section>
 			</div>
 		</div>
@@ -88,15 +162,23 @@
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				width: 960,
+				height: 700,
 				history: true,
-
+				multiplex: {
+					secret: null,
+					id: "c3573566d77d8710",
+					url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh'
+				},
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
+					{ src: 'https://cdn.socket.io/socket.io-1.3.5.js', async: true },
+					{ src: 'plugin/multiplex/client.js', async: true },
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
+				],
 			});
 		</script>
 	</body>
