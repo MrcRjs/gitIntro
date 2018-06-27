@@ -28,7 +28,7 @@
 				<section>
 					<h1>Introducción a Git</h1>
 					<a href="https://twitter.com/MrcRjs"><h4>Marco A. Rojas</h4></a>
-					<a href="https://github.com/MrcRjs"><img class="simple" src="img/git.png"></a>
+					<a href="https://github.com/MrcRjs"><img class="simple" src="img/git.png"/></a>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
@@ -42,15 +42,15 @@
 				</section>
 				<section>
 					<h2>Git</h2>
-					<img class="simple" src="img/snapshots.png">
+					<img class="simple" src="img/snapshots.png"/>
 				</section>
 				<section>
 					<h3>Sistema de Control de Versiones Distribuido</h3>
-					<img class="simple" src="img/distributed.png">
+					<img class="simple" src="img/distributed.png"/>
 				</section>
 				<section>
 					<h2>go Go GO!</h2>
-					<img class="simple" src="img/bloody.gif">
+					<img class="simple" src="img/bloody.gif"/>
 				</section>
 				<section data-background-color="#dcdcdc">
 				<h2>Configuración Inicial</h2>
@@ -82,11 +82,11 @@ $ git status
 				</section>
 				<section>
 					<h3>Agregando un nuevo archivo</h3>
-					<img class="simple" src="img/capturas/intro/intro1.png">
+					<img class="simple" src="img/capturas/intro/intro1.png"/>
 				</section>
 				<section>
 					<h3>Agregando un nuevo archivo</h3>
-					<img class="simple" src="img/capturas/intro/intro2.png">
+					<img class="simple" src="img/capturas/intro/intro2.png"/>
 				</section>
 				</section>
 				<section>
@@ -99,7 +99,7 @@ $ git status
 				</section>
 				<section>
 					<h3>Commits</h3>
-					<img class="simple" src="img/capturas/intro/intro3.png">
+					<img class="simple" src="img/capturas/intro/intro3.png"/>
 				</section>
 				</section>
 				<section>
@@ -114,11 +114,11 @@ $ git commit
 				</section>
 				<section>
 					<h3>Modificando Archivos</h3>
-					<img class="simple" src="img/capturas/intro/intro4.png">
+					<img class="simple" src="img/capturas/intro/intro4.png"/>
 				</section>
 				<section>
 					<h3>Modificando Archivos</h3>
-					<img class="simple" src="img/capturas/intro/intro5.png">
+					<img class="simple" src="img/capturas/intro/intro5.png"/>
 				</section>
 				</section>
 				<section data-markdown>
@@ -133,11 +133,11 @@ $ git commit
 				</section>
 				<section>
 					<h2>Committed, Modified, y Staged</h2>
-					<img class="simple" src="img/areas.png">
+					<img class="simple" src="img/areas.png"/>
 				</section>
 				<section>
 					<h2>Ciclo de vida de los archivos</h2>
-					<img class="simple" src="img/lifecycle.png">
+					<img class="simple" src="img/lifecycle.png"/>
 				</section>
 				<section data-background-color="#00395E">
 					<h2 style="color: whitesmoke;">Funcionamiento interno de Git</h2>
@@ -174,11 +174,185 @@ $ git log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue
 				</section>
 				<section>
 					<h2>Porcelana</h2>
-					<img class="simple" src="img/capturas/intro/porcelain.jpg">
+					<img class="simple" src="img/capturas/intro/porcelain.jpg"/>
 				</section>
 				<section>
 					<h2>Organización de archivos</h2>
-					<a href="https://github.com/MrcRjs/gitIntro/raw/gh-pages/img/capturas/intro/git-draw.png"><img class="simple" src="img/capturas/intro/git-draw.png"></a>
+					<a href="https://github.com/MrcRjs/gitIntro/raw/gh-pages/img/capturas/intro/git-draw.png"><img class="simple" src="img/capturas/intro/git-draw.png"/></a>
+				</section>
+				<section data-background-color="#00395E">
+					<h2 style="color: whitesmoke;">Referencias Git</h2>
+				</section>
+				<section data-background-color="#dcdcdc">
+					<h2>Labels</h2>
+					<pre><code data-trim data-noescape>
+$ nano index.html
+$ git log --oneline --graph --decorate
+$ git commit -am "Se agregó tortillas a la lista de compras"
+$ git log --oneline --graph --decorate
+					</code></pre>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+- --graph: Muestra el log mediante una representación gráfica
+- --decorate: Imprime las etiquetas que representan a cada commit por ejemplo (HEAD ->master) en el commit 1980b7b
+- --oneline: Reporta los commits en una sola línea
+					</script>
+				</section>
+				<section>
+					<h2>Branches</h2>
+					<pre><code data-trim data-noescape>
+$ git branch frutas
+$ git log --oneline --graph --decorate
+$ git checkout frutas
+$ nano index.html
+$ git commit -am "Se agregaron manzanas"
+$ git log --oneline --graph --decorate
+					</code></pre>
+				</section>
+				<section>
+					<h2>Branches</h2>
+					<pre><code data-trim data-noescape>
+$ cat index.html
+$ git checkout master
+$ git log --oneline --graph --decorate
+$ cat index.html
+$ git log --oneline --graph --decorate --all
+					</code></pre>
+				</section>
+				<section>
+					<h2>Deshaciendo commits</h2>
+					<pre><code data-trim data-noescape>
+$ git checkout -
+$ echo "&lt;lk&gt; cambio con errores" >> index.html
+$ git commit -am "Agregamos un error"
+$ git log --oneline --graph --decorate --all
+$ git reset --hard master
+$ git log --oneline --graph --decorate --all
+$ cat index.html
+					</code></pre>
+				</section>
+				<section>
+					<h2>Deshaciendo commits</h2>
+					<pre><code data-trim data-noescape>
+$ git reset --hard [id commit de frutas]
+$ git log --oneline --graph --decorate --all
+$ cat index.html
+					</code></pre>
+				</section>
+				<section>
+					<h2>Deshaciendo commits otro branch</h2>
+					<pre><code data-trim data-noescape>
+$ nano index.html
+$ git commit -am "Agregamos atún a la lista"
+$ git log --oneline --graph --decorate --all
+$ git branch pescados
+$ git reset --hard HEAD^
+$ git log --oneline --graph --decorate --all
+					</code></pre>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## Utilizando tilde ~ y carets ^
+							
+							- ref~ es equivalente a ref~1 y hace referencia al **primer padre** del commit.
+							- ref~2 hace referencia al **primer padre del primer padre** del commit.
+							- ref~3 hace referencia al primer padre, del primer padre, del primer padre del commit.
+							- ref~n etc...
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						## Utilizando tilde ~ y carets ^
+						- ref^ es equivalente a ref^1 y hace referencia al **primer padre** del commit.
+						- ref^2 hace referencia al segundo padre del commit. (algunos commits pueden tener dos padres cuando dos ramas se unen).
+
+						Los operadores ^ y ~ se pueden combinar.
+
+						[Explicación mas detallada](http://www.paulboxley.com/blog/2011/06/git-caret-and-tilde)
+						</script>
+					</section>
+					<section>
+						<h2>Utilizando tilde ~ y carets ^</h2>
+						<img class="simple" src="img/capturas/rollingback/refs.png"/>
+					</section>
+				</section>
+								<section>
+					<h2>Deshaciendo mensaje commit</h2>
+					<pre><code data-trim data-noescape>
+$ git checkout pescados
+$ nano index.html
+$ git commit -am "Agremos salmpñ a la lsta"
+$ git log --oneline --graph --decorate --all
+$ git commit --amend --no-edit -m "Agregamos salmón a la lista"
+$ git log --oneline --graph --decorate --all
+					</code></pre>
+				</section>
+				<section>
+					<h2>Historial de cambios</h2>
+					<pre><code data-trim data-noescape>
+$ git branch
+$ git log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)"
+$ git reflog show
+$ git reflog show frutas
+$ git reglog show pescados
+					</code></pre>
+				</section>
+				<section>
+					<h2>Mas staging</h2>
+					<pre><code data-trim data-noescape>
+$ git checkout master
+$ nano index.html
+$ git status
+$ git add -A
+$ nano index.html
+$ git status
+					</code></pre>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					## Git add
+
+					- **git add -A == git add .** 
+						
+						Agrega a stage archivos nuevos, modificados y eliminados
+					- **git add --ignore-removal .**
+						
+						Agrega a stage archivos nuevos y modificados
+					- **git add -u**
+						
+						Agrega a stage archivos modificados y eliminados
+
+					[Mas info de los paths en *git add*](https://git-scm.com/docs/git-add#git-add-ltpathspecgt82308203)
+					</script>
+				</section>
+					<section>
+					<h2>Verificando los cambios con diff</h2>
+					<pre><code data-trim data-noescape>
+$ git diff
+$ git diff --cached HEAD
+$ git diff HEAD
+					</code></pre>
+				</section>
+				<section>
+					<h2>Quitando archivos de Stage</h2>
+					<pre><code data-trim data-noescape>
+$ git status
+$ git reset HEAD index.html
+$ git status
+$ git diff
+					</code></pre>
+				</section>
+				<section>
+					<h2>Deshaciendo modificaciones</h2>
+					<pre><code data-trim data-noescape>
+$ git status
+$ git checkout -- index.html
+$ git status
+$ cat index.html
+					</code></pre>
+					<p>Se debe <strong>tener cuidado</strong> al ejecutar '$ git checkout --' ya que es un comando destructivo, elimina los cambios que hayamos hecho sin poder recuperarlos</p>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
@@ -208,7 +382,7 @@ $ git log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
 					{ src: 'https://cdn.socket.io/socket.io-1.3.5.js', async: true },
-					{ src: 'plugin/multiplex/client.js', async: true },
+					{ src: 'plugin/multiplex/master.js', async: true },
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
